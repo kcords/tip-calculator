@@ -1,0 +1,9 @@
+{
+  "name": "tip-calculator",
+  "version": "1.0.0",
+  "description": "A simple tool for calculating recommended tip when dining out",
+  "main": "index.js",
+  "repository": "",
+  "author": "Kyle Cordell",
+  "license": "MIT"
+}
