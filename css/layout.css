@@ -1,11 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+html {
+  font-family: "Roboto", sans-serif;
+  background: url('../img/background.png') no-repeat fixed;;
+  background-size: cover;
+}
+
 .header {
   display: flex;
   flex-flow: column wrap;
   margin-bottom: 25px;
   padding: 10px;
-  background-color: gray;
-  border-bottom: .1px rgba(0, 0, 0, 0.092) solid;
-  box-shadow: 0 2px 8px rgba(128, 128, 128, 0.94);
+  border-bottom: .1px solid rgba(0, 0, 0, 0.092);
+  backdrop-filter: blur(5px);
+  background-color: rgba(207, 229, 231, 0.126);
+  box-shadow: 2px 8px 8px rgba(0, 0, 0, 0.3);
+  border-bottom: 2px rgba(40, 40, 40, 0.25) solid;
 }
 
 .nav-list {
@@ -14,7 +23,12 @@
   justify-content: flex-start;
   align-items: center;
   align-content: center;
-  gap: 15px;
+  gap: 25px;
+}
+
+.nav-list a {
+  color: rgba(255, 255, 255, .8);
+  font-weight: 400;
 }
 
 main {
@@ -27,4 +41,19 @@ h1 {
   font-size: 1.75rem;
   font-weight: 600;
   margin-bottom: 10px;
+}
+
+.content {
+  padding: 15px;
+  min-width: 300px;
+  max-width: 80vw;
+  background-color: lightsteelblue;
+  color: white;
+  backdrop-filter: blur(4px);
+  background-color: rgba(95, 95, 95, .4);
+  border: 1.5px rgba(255,255,255,0.4) solid;
+  border-radius: 10px;
+  border-bottom: 2px rgba(40,40,40,0.35) solid;
+  border-right: 2px rgba(40,40,40,0.35) solid;
+  box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.3);
 }

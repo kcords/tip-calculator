@@ -1,18 +1,28 @@
-#calculator-content {
-  padding: 10px;
-  min-width: 300px;
-  max-width: 80vw;
-  background-color: lightsteelblue;
-  border: 1.5px black solid;
-  border-radius: 5px;
-  box-shadow: 1px 4px 8px grey;
-}
-
 .form-row {
   display: flex;
   flex-flow: column nowrap;
   gap: 5px;
   margin-bottom: 5px;
+}
+
+input, select, button {
+  padding: 4px;
+  min-height: 25px;
+  border-radius: 6px;
+  font-size: .85rem;
+}
+
+input:disabled {
+  color: rgba(221, 221, 221, .95);
+  font-weight: bold;
+  font-size: .95rem;
+}
+
+.output-container {
+  margin: 15px auto;
+  padding: 10px;
+  border: 1px solid rgba(200, 200, 200, .75);
+  border-radius: 5px;
 }
 
 .capitalized {
