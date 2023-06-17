@@ -1,0 +1,20 @@
+#calculator-content {
+  padding: 10px;
+  min-width: 300px;
+  max-width: 80vw;
+  background-color: lightsteelblue;
+  border: 1.5px black solid;
+  border-radius: 5px;
+  box-shadow: 1px 4px 8px grey;
+}
+
+.form-row {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 5px;
+  margin-bottom: 5px;
+}
+
+.capitalized {
+  text-transform: capitalize;
+}
