@@ -36,7 +36,7 @@
 
         <div class="form-row">
           <label for="subtotal">Subtotal: (USD)</label>
-          <input type="numeric" id="subtotal"  pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" placeholder="0.00" required>
+          <input type="number" id="subtotal"  pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" placeholder="0.00" required>
         </div>
 
         <div class="form-row">
@@ -61,23 +61,23 @@
         </div>
 
         <div class="form-row">
-          <label for="roundTo">Round up to:</label>
+          <label for="roundTo">Round to:</label>
           <select id="roundTo">
             <option value="none" selected>None</option>
-            <option value="nearest-dollar">Nearest Dollar</option>
-            <option value="nearest-quarter">Nearest Quarter</option>
+            <option value="quarter">Quarter</option>
+            <option value="dollar">Dollar</option>
           </select>
         </div>
 
         <div class="output-container">
           <div class="form-row">
-            <label for="tip">Tip Amount: (USD)</label>
-            <input id="tip" type="number" readonly value="0.00" disabled>
+            <label for="tip">Tip Amount:</label>
+            <input id="tip" type="text" readonly value="$0.00" disabled>
           </div>
 
           <div class="form-row">
-            <label for="total">Total Amount: (USD)</label>
-            <input id="total" type="number" readonly value="0.00" disabled>
+            <label for="total">Total Amount:</label>
+            <input id="total" type="text" readonly value="$0.00" disabled>
           </div>
         </div>
 

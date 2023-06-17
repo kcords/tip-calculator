@@ -1,6 +1,8 @@
-let tipMultiplier = 0;
-let subtotal = 0;
-let tipTotal = 0;
+const state = {
+  tipMultiplier: 0,
+  tipTotal: 0,
+  subtotal: 0,
+};
 
 const subtotalSelect = document.querySelector("#subtotal");
 const calculateBySelect = document.querySelector("#calculateBy");
@@ -55,7 +57,7 @@ percentageSelect.addEventListener("input", ({ target: { value } }) => {
 });
 
 roundToInput.addEventListener("change", () => {
-  //TODO
+  updateTipTotal();
 });
 
 function toggleCalculateByElementsVisibility(value) {
@@ -82,35 +84,58 @@ function updateTipMultiplier() {
       ? percentageSelect.value
       : qualityOfServiceValues[qualityOfServiceSelect.value].value;
 
-  tipMultiplier = calculatePercentageMultiplier(newTipPercentage);
-  console.log({ tipMultiplier });
+  state.tipMultiplier = calculatePercentageMultiplier(newTipPercentage);
   updateTipTotal();
 }
 
+function calculateRoundedOffset() {
+  const { value } = roundToInput;
+  const total = calculateTotal();
+  let prevOffset = 0;
+  let nextOffset = 0;
+  switch (value) {
+    case "quarter":
+      prevOffset = +((total % 0.25) * 100).toFixed(2);
+      nextOffset = 25 - prevOffset;
+      return prevOffset < nextOffset && prevOffset < 0.15
+        ? -prevOffset / 100
+        : nextOffset / 100;
+    case "dollar":
+      prevOffset = +(total - Math.floor(total)).toFixed(2);
+      nextOffset = +(Math.ceil(total) - total).toFixed(2);
+      return prevOffset < nextOffset && prevOffset <= 0.2
+        ? -prevOffset
+        : nextOffset;
+    default:
+      return 0;
+  }
+}
+
 function calculateTipTotal() {
-  return subtotal * tipMultiplier;
+  return +(state.subtotal * state.tipMultiplier).toFixed(2);
 }
 
 function updateTipTotal() {
-  tipTotal = calculateTipTotal();
-  console.log({ tipTotal }, typeof tipTotal);
-  updateTipInput();
-  updateTotalInput();
-}
-
-function updateSubtotal() {
-  subtotal = parseInt(subtotalSelect.value);
-  console.log({ subtotal }, typeof subtotal);
+  state.tipTotal = calculateTipTotal();
+  state.tipTotal += calculateRoundedOffset();
   updateTipInput();
   updateTotalInput();
 }
 
 function updateTipInput() {
-  tipInput.value = tipTotal.toFixed(2);
+  tipInput.value = `$${state.tipTotal.toFixed(2)}`;
+}
+
+function updateSubtotal() {
+  state.subtotal = Number(subtotalSelect.value);
+  updateTipInput();
+  updateTotalInput();
+}
+
+function calculateTotal() {
+  return Number(state.subtotal + state.tipTotal);
 }
 
 function updateTotalInput() {
-  console.log({ subtotal, tipTotal }, subtotal + tipTotal);
-  calculateRoundedOffset();
-  totalInput.value = Number(subtotal + tipTotal).toFixed(2);
+  totalInput.value = `$${calculateTotal().toFixed(2)}`;
 }
