@@ -1,0 +1,30 @@
+.header {
+  display: flex;
+  flex-flow: column wrap;
+  margin-bottom: 25px;
+  padding: 10px;
+  background-color: gray;
+  border-bottom: .1px rgba(0, 0, 0, 0.092) solid;
+  box-shadow: 0 2px 8px rgba(128, 128, 128, 0.94);
+}
+
+.nav-list {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  gap: 15px;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
