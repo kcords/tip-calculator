@@ -1,7 +1,14 @@
-const state = {
+const STATE = {
   tipMultiplier: 0,
   tipTotal: 0,
   subtotal: 0,
+  sessionId: crypto.randomUUID(),
+  sessionDate: new Date().toLocaleDateString("en-us", {
+    weekday: "long",
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  }),
 };
 
 const subtotalSelect = document.querySelector("#subtotal");
@@ -18,6 +25,7 @@ const percentageGroupElements = document.querySelectorAll(".percentage-group");
 const roundToInput = document.querySelector("#roundTo");
 const tipInput = document.querySelector("#tip");
 const totalInput = document.querySelector("#total");
+const tipCalculatorForm = document.querySelector("#tipCalculatorForm");
 
 const qualityOfServiceValues = {
   incredible: { value: 25, emoji: "&#x1F929" },
@@ -57,7 +65,13 @@ percentageSelect.addEventListener("input", ({ target: { value } }) => {
 });
 
 roundToInput.addEventListener("change", () => {
+  formatAndSaveSessionData();
   updateTipTotal();
+});
+
+tipCalculatorForm.addEventListener("reset", () => {
+  formatAndSaveSessionData();
+  generateNewSessionId();
 });
 
 function toggleCalculateByElementsVisibility(value) {
@@ -84,7 +98,7 @@ function updateTipMultiplier() {
       ? percentageSelect.value
       : qualityOfServiceValues[qualityOfServiceSelect.value].value;
 
-  state.tipMultiplier = calculatePercentageMultiplier(newTipPercentage);
+  STATE.tipMultiplier = calculatePercentageMultiplier(newTipPercentage);
   updateTipTotal();
 }
 
@@ -112,30 +126,46 @@ function calculateRoundedOffset() {
 }
 
 function calculateTipTotal() {
-  return +(state.subtotal * state.tipMultiplier).toFixed(2);
+  return +(STATE.subtotal * STATE.tipMultiplier).toFixed(2);
 }
 
 function updateTipTotal() {
-  state.tipTotal = calculateTipTotal();
-  state.tipTotal += calculateRoundedOffset();
+  STATE.tipTotal = calculateTipTotal();
+  STATE.tipTotal += calculateRoundedOffset();
   updateTipInput();
   updateTotalInput();
 }
 
 function updateTipInput() {
-  tipInput.value = `$${state.tipTotal.toFixed(2)}`;
+  tipInput.value = `$${STATE.tipTotal.toFixed(2)}`;
+  formatAndSaveSessionData();
 }
 
 function updateSubtotal() {
-  state.subtotal = Number(subtotalSelect.value);
+  STATE.subtotal = Number(subtotalSelect.value);
   updateTipInput();
   updateTotalInput();
 }
 
 function calculateTotal() {
-  return Number(state.subtotal + state.tipTotal);
+  return +(STATE.subtotal + STATE.tipTotal).toFixed(2);
 }
 
 function updateTotalInput() {
   totalInput.value = `$${calculateTotal().toFixed(2)}`;
+  formatAndSaveSessionData();
+}
+
+function formatAndSaveSessionData() {
+  const formattedData = {
+    id: STATE.sessionId,
+    date: STATE.sessionDate,
+    tipAmount: calculateTipTotal(),
+    totalAmount: calculateTotal(),
+  };
+  saveSessionData(formattedData);
+}
+
+function generateNewSessionId() {
+  STATE.sessionId = crypto.randomUUID();
 }
