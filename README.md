@@ -20,9 +20,12 @@ When dining out, it can be challenging to calculate the appropriate tip amount. 
 ## Installation
 No installation is required for this project. Simply open the `index.html` file in a web browser to use the Tip Calculator.
 
-## Usage
+## Local Usage
 1. Open the `index.html` file in a web browser.
 2. Enter the bill amount in the provided input field.
 3. Select the desired tip percentage using the provided options.
 4. The calculated tip amount and total bill including the tip will be displayed.
+
+## Web Usage
+Navigate to [https://kcords.github.io/tip-calculator/](https://kcords.github.io/tip-calculator/)
 
