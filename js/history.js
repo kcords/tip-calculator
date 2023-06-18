@@ -8,7 +8,7 @@ function generateSessionElements() {
   for (let session of savedSessions) {
     const { id, date, tipAmount, totalAmount } = session;
 
-    const row = sessionListTable.insertRow(-1);
+    const row = sessionListTable.insertRow(1);
 
     const cell1 = row.insertCell(0);
     cell1.innerText = date;
