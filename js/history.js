@@ -14,10 +14,10 @@ function generateSessionElements() {
     cell1.innerText = date;
 
     const cell2 = row.insertCell(1);
-    cell2.innerText = `$${tipAmount}`;
+    cell2.innerText = `$${tipAmount.toFixed(2)}`;
 
     const cell3 = row.insertCell(2);
-    cell3.innerText = `$${totalAmount}`;
+    cell3.innerText = `$${totalAmount.toFixed(2)}`;
 
     const cell4 = row.insertCell(3);
     const deleteBtn = document.createElement("button");
