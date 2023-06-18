@@ -5,6 +5,12 @@ html {
   background-size: cover;
 }
 
+body {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  height: 100dvh;
+}
 .header {
   display: flex;
   flex-flow: column wrap;
@@ -32,6 +38,7 @@ html {
 }
 
 main {
+  flex: 1 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -46,7 +53,7 @@ h1 {
 .content {
   padding: 15px;
   min-width: 300px;
-  max-width: 80vw;
+  max-width: 75vw;
   background-color: lightsteelblue;
   color: white;
   backdrop-filter: blur(4px);
@@ -56,4 +63,10 @@ h1 {
   border-bottom: 2px rgba(40,40,40,0.35) solid;
   border-right: 2px rgba(40,40,40,0.35) solid;
   box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.3);
+}
+footer {
+  display: flex;
+  justify-content: center;
+  margin: 15px auto;
+  color: rgba(255, 255, 255, 0.5)
 }
