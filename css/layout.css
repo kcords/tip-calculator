@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 html {
   font-family: "Roboto", sans-serif;
   background: url('../img/background.png') no-repeat fixed;;
@@ -11,6 +12,7 @@ body {
   justify-content: space-between;
   height: 100dvh;
 }
+
 .header {
   display: flex;
   flex-flow: column wrap;
@@ -64,14 +66,16 @@ h1 {
   border-right: 2px rgba(40,40,40,0.35) solid;
   box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.3);
   -webkit-animation: zoom-in 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-    animation: zoom-in 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  animation: zoom-in 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 }
+
 footer {
   display: flex;
   justify-content: center;
   margin: 15px auto;
   color: rgba(255, 255, 255, 0.5)
 }
+
 @-webkit-keyframes zoom-in {
   0% {
     -webkit-transform: scale(0.5);
