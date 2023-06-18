@@ -2,8 +2,6 @@
 
 html {
   font-family: "Roboto", sans-serif;
-  background: url('../img/background.png') no-repeat fixed;;
-  background-size: cover;
 }
 
 body {
@@ -11,6 +9,11 @@ body {
   flex-flow: column nowrap;
   justify-content: space-between;
   height: 100dvh;
+  background: url('../img/background.png') no-repeat center center fixed black;
+  -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 .header {
@@ -60,13 +63,13 @@ h1 {
   color: white;
   backdrop-filter: blur(4px);
   background-color: rgba(95, 95, 95, .4);
-  border: 1.5px rgba(255,255,255,0.4) solid;
+  border: 1.5px rgba(255, 255, 255, 0.4) solid;
   border-radius: 10px;
-  border-bottom: 2px rgba(40,40,40,0.35) solid;
-  border-right: 2px rgba(40,40,40,0.35) solid;
+  border-bottom: 2px rgba(40, 40, 40, 0.35) solid;
+    border-right: 2px rgba(40, 40, 40, 0.35) solid;
   box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.3);
-  -webkit-animation: zoom-in 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-  animation: zoom-in 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  -webkit-animation: 500ms scale-up-center .4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  animation: 500ms scale-up-center .4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 }
 
 footer {
@@ -76,7 +79,7 @@ footer {
   color: rgba(255, 255, 255, 0.5)
 }
 
-@-webkit-keyframes zoom-in {
+@-webkit-keyframes scale-up-center {
   0% {
     -webkit-transform: scale(0.5);
     transform: scale(0.5);
@@ -88,7 +91,7 @@ footer {
   }
 }
 
-@keyframes zoom-in {
+@keyframes scale-up-center {
   0% {
     -webkit-transform: scale(0.5);
     transform: scale(0.5);
