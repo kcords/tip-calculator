@@ -6,7 +6,9 @@
   <link href="css/reset.css" type="text/css" rel="stylesheet" />
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/history.css">
+  <!-- <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css"> -->
   <script src="js/data-manager.js" defer></script>
+  <script src="js/history.js" defer></script>
   <title>Transaction History</title>
 </head>
 <body>
@@ -23,9 +25,15 @@
   <main>
     <section class="content">
       <h1>History</h1>
-      <ul id="session-list">
+      <table id="session-list-table">
+        <tr>
+          <th>Date</th>
+          <th>Tip</th>
+          <th>Total</th>
+          <th></th>
+        </tr>
         <!-- Items generated dynamically -->
-      </ul>
+      </table>
     </section>
   </main>
 
