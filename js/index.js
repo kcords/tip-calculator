@@ -36,6 +36,14 @@ class TipCalculator {
     let prevOffset = 0;
     let nextOffset = 0;
     switch (roundType) {
+      case "dollar":
+        prevOffset = +(total - Math.floor(total)).toFixed(2);
+        nextOffset = +(Math.ceil(total) - total).toFixed(2);
+        offsetUpdate =
+          prevOffset < nextOffset && prevOffset <= 0.2
+            ? -prevOffset
+            : nextOffset;
+        break;
       case "quarter":
         prevOffset = +((total % 0.25) * 100).toFixed(2);
         nextOffset = 25 - prevOffset;
@@ -44,13 +52,8 @@ class TipCalculator {
             ? -prevOffset / 100
             : nextOffset / 100;
         break;
-      case "dollar":
-        prevOffset = +(total - Math.floor(total)).toFixed(2);
-        nextOffset = +(Math.ceil(total) - total).toFixed(2);
-        offsetUpdate =
-          prevOffset < nextOffset && prevOffset <= 0.2
-            ? -prevOffset
-            : nextOffset;
+      default:
+        break;
     }
 
     this.#tipOffset = +offsetUpdate.toFixed(2);
