@@ -59,6 +59,7 @@ h1 {
   padding: 15px;
   min-width: 300px;
   max-width: 75vw;
+  overflow: auto;
   background-color: lightsteelblue;
   color: white;
   backdrop-filter: blur(4px);
