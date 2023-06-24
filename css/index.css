@@ -13,7 +13,7 @@ input, select, button {
 }
 
 input:disabled {
-  color: rgba(221, 221, 221, .95);
+  color: rgba(225, 225, 225);
   font-weight: bold;
   font-size: .95rem;
 }
